@@ -10,3 +10,4 @@ target/
 *.o
 *.so
 package-lock.json
+*.dylib
