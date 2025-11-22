@@ -119,6 +119,7 @@ module.exports = grammar({
           $.rewrite,
           $.like,
           $.log,
+          $.stripQuote,
           $.range,
           $.patternWhere,
           $.mulOperation,
@@ -381,8 +382,19 @@ module.exports = grammar({
         seq('message', '=', field('message', choice($.stringConstant, $.variable))),
         field('message', alias('$message', $.variable)),
       ),
+    _stripMessage: ($) =>
+      choice(
+        seq('message', '=', field('message', choice($.stringConstant, $.variable))),
+        field('message', alias('$message', $.variable)),
+      ),
     _logVariable: ($) =>
       choice(seq('variable', '=', field('variable', $.variable)), field('variable', $.variable)),
+
+    _stripVariable: ($) =>
+      choice(seq('variable', '=', field('variable', $.variable)), field('variable', $.variable)),
+
+    _stripSplitter: ($) =>
+      choice(seq('spliter', '=', field('spliter', $.variable)), field('spliter', $.variable)),
 
     log: ($) =>
       seq(
@@ -392,6 +404,18 @@ module.exports = grammar({
           $._logVariable,
           seq($._logMessage, ',', $._logVariable),
           seq($._logVariable, ',', $._logMessage),
+        ),
+        optional(','),
+        ')',
+      ),
+    stripQuote: ($) =>
+      seq(
+        'stripQuote(',
+        choice(
+          $._stripMessage,
+          seq($._stripMessage, ',', $._stripVariable),
+          seq($._stripVariable, ',', $._stripMessage),
+          seq($._stripVariable, ',', $._stripSplitter),
         ),
         optional(','),
         ')',
@@ -501,6 +525,7 @@ module.exports = grammar({
         $.predicateAccumulate,
         $.predicateRewrite,
         $.log,
+        $.stripQuote,
         $.predicateGreater,
         $.predicateLess,
         $.predicateGreaterEqual,
