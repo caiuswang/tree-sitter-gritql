@@ -3109,10 +3109,6 @@
         "required": false,
         "types": [
           {
-            "type": "list",
-            "named": true
-          },
-          {
             "type": "variable",
             "named": true
           }
@@ -13906,16 +13902,6 @@
     "type": "stripQuote",
     "named": true,
     "fields": {
-      "list": {
-        "multiple": false,
-        "required": false,
-        "types": [
-          {
-            "type": "list",
-            "named": true
-          }
-        ]
-      },
       "message": {
         "multiple": false,
         "required": false,
@@ -13924,6 +13910,26 @@
             "type": "stringConstant",
             "named": true
           },
+          {
+            "type": "variable",
+            "named": true
+          }
+        ]
+      },
+      "spliter": {
+        "multiple": false,
+        "required": false,
+        "types": [
+          {
+            "type": "variable",
+            "named": true
+          }
+        ]
+      },
+      "variable": {
+        "multiple": false,
+        "required": false,
+        "types": [
           {
             "type": "variable",
             "named": true
@@ -15064,10 +15070,6 @@
     "named": false
   },
   {
-    "type": "list",
-    "named": false
-  },
-  {
     "type": "log(",
     "named": false
   },
@@ -15181,6 +15183,10 @@
   },
   {
     "type": "some",
+    "named": false
+  },
+  {
+    "type": "spliter",
     "named": false
   },
   {
