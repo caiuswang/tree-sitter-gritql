@@ -889,6 +889,16 @@
           }
         ]
       },
+      "variable": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "variable",
+            "named": true
+          }
+        ]
+      },
       "variables": {
         "multiple": true,
         "required": true,
@@ -1623,22 +1633,6 @@
           "named": true
         }
       ]
-    }
-  },
-  {
-    "type": "doubleQuoteSnippet",
-    "named": true,
-    "fields": {
-      "content": {
-        "multiple": false,
-        "required": true,
-        "types": [
-          {
-            "type": "snippetContent",
-            "named": true
-          }
-        ]
-      }
     }
   },
   {
@@ -14818,10 +14812,6 @@
     "named": false
   },
   {
-    "type": "\"",
-    "named": false
-  },
-  {
     "type": "%",
     "named": false
   },
@@ -14979,6 +14969,10 @@
   },
   {
     "type": "doubleConstant",
+    "named": true
+  },
+  {
+    "type": "doubleQuoteSnippet",
     "named": true
   },
   {

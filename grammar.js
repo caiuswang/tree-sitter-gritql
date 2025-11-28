@@ -246,7 +246,7 @@ module.exports = grammar({
         ),
       ),
 
-    _bubbleScope: ($) => prec.right(seq('bubble', optional(seq('(', commaSep($.variable), ')')))),
+    _bubbleScope: ($) => prec.right(seq('bubble', optional(field("variables", seq('(', commaSep(field('variable', $.variable)), ')'))))),
 
     bubble: ($) =>
       seq(field('variables', $._bubbleScope), allowCurly(field('pattern', $._pattern))),
