@@ -13391,6 +13391,7 @@
   {
     "type": "source_file",
     "named": true,
+    "root": true,
     "fields": {
       "definitions": {
         "multiple": true,
@@ -14639,7 +14640,8 @@
   },
   {
     "type": "comment",
-    "named": true
+    "named": true,
+    "extra": true
   },
   {
     "type": "contains",
@@ -14907,11 +14909,15 @@
   },
   {
     "type": "variable",
-    "named": false
+    "named": true
   },
   {
     "type": "variable",
-    "named": true
+    "named": false
+  },
+  {
+    "type": "vue",
+    "named": false
   },
   {
     "type": "where",
